@@ -29,10 +29,12 @@ It will not display anything if the zoom of the current tab is below 250px. Plea
 3. Now you can see the guide in the background when you edit glyphs. (It will not display anything if the zoom of the current tab is below 250px.)
 4. Nodes which on the paths of guides will be highlighted. (It works when the zoom more than 400px)
 
+
 1. 建立新字符來設計你的稿紙。字符名稱必須是 `_guide.XXX`，其中 *XXX* 表示文字語系，例如 *_guide.han* (漢字), *_guide.kana* (假名), *_guide.bopomofo* (注音), *_guide.hangul* (韓文)...，或是也可建立 `_guide.any` 適用於所有文字（但應該沒什麼用）。
 2. 若需要加上文字說明，可以用「註記」工具在適當位置加註文字。
 3. 這樣在編輯文字時，就會看到背景出現稿紙了。（注意編輯面板必須大於 250px 時才會顯示。）
 4. 當控制點接觸稿紙上的線條，會被凸顯顯示。（注意編輯面板必須大於 400px 時才會顯示。)
+
 
 1. まずは原稿用紙のグリフを作成してください。グリフ名は `_guide.XXX` で、*XXX* は文字体系を指定してください。たとえば *_guide.han* (漢字), *_guide.kana* (仮名), *_guide.hangul* (ハングル)…。また、 `_guide.any` はあらゆる文字に適用します（逆に使えないけど）。
 2. メモ記述を入れたい場合は、注釈ツールでテキストをつけてください。
