@@ -30,7 +30,7 @@ class ShowGuideSheets(ReporterPlugin):
 			'zh-Hans': '稿纸',
 			'zh': '稿紙',
 			'ja': '原稿用紙',
-			})
+		})
 
 
 	@objc.python_method
@@ -66,15 +66,16 @@ class ShowGuideSheets(ReporterPlugin):
 			opendPath.setLineWidth_(1.0 / scale)
 			opendPath.stroke()
 
-			for ann in guideLayer.annotations:
-				if ann.type != TEXT: continue
-				if ann.text is None: continue
-				self.drawTextAtPoint(
-						ann.text, ann.position, 
-						fontSize = 10, 
-						fontColor = color,
-						align = "topleft",
-					)
+			if guideLayer.annotations:
+				for ann in guideLayer.annotations:
+					if ann.type != TEXT: continue
+					if ann.text is None: continue
+					self.drawTextAtPoint(
+							ann.text, ann.position, 
+							fontSize = 10, 
+							fontColor = color,
+							align = "topleft",
+						)
 		
 		except Exception as e:
 			self.logToConsole( "showGuideSheets: %s\n" % str(e) )

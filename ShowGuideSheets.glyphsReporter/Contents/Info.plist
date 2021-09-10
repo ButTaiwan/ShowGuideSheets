@@ -13,15 +13,15 @@
 	<key>CFBundleName</key>
 	<string>ShowGuideSheets</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.1</string>
 	<key>UpdateFeedURL</key>
 	<string>https://raw.githubusercontent.com/ButTaiwan/ShowGuideSheets/master/ShowGuideSheets.glyphsReporter/Contents/Info.plist</string>
 	<key>productPageURL</key>
 	<string>https://github.com/ButTaiwan/ShowGuideSheets</string>
 	<key>productReleaseNotes</key>
-	<string>first version.</string>
+	<string>bug fix (ann None error.)</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright, But Ko, 2021</string>
 	<key>NSPrincipalClass</key>
