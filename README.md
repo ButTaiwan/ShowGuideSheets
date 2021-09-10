@@ -16,30 +16,33 @@ After installation, turn it on or off by choosing *View > Show Guide Sheets* (zh
 
 ![ShowGuideSheets](ShowGuideSheets.png)
 
-It will not display anything if the zoom of the current tab is below 250px. Please zoom out your view.
 
-注意編輯面板必須大於 250px 時才會顯示，另外與稿紙外框重疊的節點要在 400px 以上才會顯示。
-
-編集ビューのズームが 250px 以下を下がると表示しません。
 
 ## How to use | 使用方式 | 使い方
 
+### English
 1. Create a new glyph to make your own guide sheet. The glyph name should be `_guide.XXX`, where *XXX* is the script name of character. e.g. *_guide.han*, *_guide.kana*, *_guide.bopomofo*, *_guide.hangul* ... (or `_guide.any` for any script.)
 2. Add text notes by annotation tool if you need.
 3. Now you can see the guide in the background when you edit glyphs. (It will not display anything if the zoom of the current tab is below 250px.)
 4. Nodes which on the paths of guides will be highlighted. (It works when the zoom more than 400px)
 
+
+### 繁體中文
 1. 建立新字符來設計你的稿紙。字符名稱必須是 `_guide.XXX`，其中 *XXX* 表示文字語系，例如 *_guide.han* (漢字), *_guide.kana* (假名), *_guide.bopomofo* (注音), *_guide.hangul* (韓文)...，或是也可建立 `_guide.any` 適用於所有文字（但應該沒什麼用）。
 2. 若需要加上文字說明，可以用「註記」工具在適當位置加註文字。
 3. 這樣在編輯文字時，就會看到背景出現稿紙了。（注意編輯面板必須大於 250px 時才會顯示。）
 4. 當控制點接觸稿紙上的線條，會被凸顯顯示。（注意編輯面板必須大於 400px 時才會顯示。)
 
+
+### 日本語　
 1. まずは原稿用紙のグリフを作成してください。グリフ名は `_guide.XXX` で、*XXX* は文字体系を指定してください。たとえば *_guide.han* (漢字), *_guide.kana* (仮名), *_guide.hangul* (ハングル)…。また、 `_guide.any` はあらゆる文字に適用します（逆に使えないけど）。
 2. メモ記述を入れたい場合は、注釈ツールでテキストをつけてください。
 3. 編集ビューで該当文字体系のグリフを編集する場合、背景に原稿用紙が表示されます。（ズームが 250 以下だと表示されません。）
 4. ガイドのパスの上に乗せたポイントはハイライトされます。（ズームが 400 以下だと表示されません。）
 
-#### Custom Parameter | 自訂參數 | カスタムパラメータ
+
+
+## Custom Parameter | 自訂參數 | カスタムパラメータ
 
 You can change the color of guide lines. Just set the font custom parameter `Guide Color` in Hex color code, e.g. FF0000 meanst red lines. 
 
@@ -47,7 +50,9 @@ You can change the color of guide lines. Just set the font custom parameter `Gui
 
 ガイドの色は変更できます。フォントパラメータ `Guide Color` を作って、6 桁の十六進数のカラーコードを指定してください。たとえば FF0000 は赤です。
 
-### Requirements
+
+
+## Requirements
 
 The plug-in works both in Glyphs 2 and Glyphs 3. I can only test it in latest app, and perhaps it crashs on earlier versions.
 
@@ -55,7 +60,9 @@ The plug-in works both in Glyphs 2 and Glyphs 3. I can only test it in latest ap
 
 このプラグインは Glyphs 2 と Glyphs 3 に対応しています。ただし最新バージョンでしかテストしていません。
 
-### License
+
+
+## License
 
 Copyright 2021 But Ko (@buttaiwan).
 Based on sample code by Georg Seifert (@schriftgestalt).
