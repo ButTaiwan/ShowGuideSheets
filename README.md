@@ -45,11 +45,13 @@ After installation, turn it on or off by choosing *View > Show Guide Sheets* (zh
 ## Custom Parameter | 自訂參數 | カスタムパラメータ
 
 You can change the color of guide lines. Just set the font custom parameter `Guide Color` in Hex color code, e.g. FF0000 meanst red lines. 
+Or you can set two color codes, e.g. FF0000,00FF00. The second one will be adapted to closed paths of your guide sheet.
 
 想要更改稿紙線條顏色，可以在字型資訊視窗中設定字型的自訂參數。名稱為 `Guide Color` ，請設定 6 位數的十六進位色碼。例如 FF0000 表示紅色。
+或是您可指定兩種顏色，像是 FF0000,00FF00 這樣，此時第二組顏色會被套用在封閉路徑上（開放路徑與封閉路徑顯示成不同顏色）。
 
 ガイドの色は変更できます。フォントパラメータ `Guide Color` を作って、6 桁の十六進数のカラーコードを指定してください。たとえば FF0000 は赤です。
-
+FF0000,00FF00 のように二種類の色を指定することができます。この場合、2個目の色はに閉じたパスに適用されます。（つまり開かれたパスと閉じたパスを違う色で表示することが可能です。）
 
 
 ## Requirements
