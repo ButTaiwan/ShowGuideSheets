@@ -85,9 +85,10 @@ class ShowGuideSheets(ReporterPlugin):
 		if scale > 0.4:
 			try:
 				for path in layer.paths:
-					for nodes in path.nodes:
-						if closedPaths.isStrokeHitByPoint_padding_(nodes.position, .6): self.drawOnPathPoint(nodes.position, self.getColor(1, 0.25), scale)
-						if opendPath.isStrokeHitByPoint_padding_(nodes.position, .6): self.drawOnPathPoint(nodes.position, self.getColor(0, 0.25), scale)
+					for node in path.nodes:
+						if n.type == OFFCURVE: continue
+						if closedPaths.isStrokeHitByPoint_padding_(node.position, .6): self.drawOnPathPoint(node.position, self.getColor(1, 0.25), scale)
+						if opendPath.isStrokeHitByPoint_padding_(node.position, .6): self.drawOnPathPoint(node.position, self.getColor(0, 0.25), scale)
 			
 			except Exception as e:
 				self.logToConsole( "showGuideSheetNodes: %s\n" % str(e) )
