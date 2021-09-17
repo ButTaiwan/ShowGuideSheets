@@ -13,9 +13,9 @@
 	<key>CFBundleName</key>
 	<string>ShowGuideSheets</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.40</string>
+	<string>1.41</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>1.41</string>
 	<key>UpdateFeedURL</key>
 	<string>https://raw.githubusercontent.com/ButTaiwan/ShowGuideSheets/master/ShowGuideSheets.glyphsReporter/Contents/Info.plist</string>
 	<key>productPageURL</key>

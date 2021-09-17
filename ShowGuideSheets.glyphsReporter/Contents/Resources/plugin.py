@@ -86,7 +86,7 @@ class ShowGuideSheets(ReporterPlugin):
 			try:
 				for path in layer.paths:
 					for node in path.nodes:
-						if n.type == OFFCURVE: continue
+						if node.type == OFFCURVE: continue
 						if closedPaths.isStrokeHitByPoint_padding_(node.position, .6): self.drawOnPathPoint(node.position, self.getColor(1, 0.25), scale)
 						if opendPath.isStrokeHitByPoint_padding_(node.position, .6): self.drawOnPathPoint(node.position, self.getColor(0, 0.25), scale)
 			
