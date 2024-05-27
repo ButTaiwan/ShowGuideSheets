@@ -3,21 +3,22 @@
 ###########################################################################################################
 #
 #
-#	Reporter Plugin
+# Reporter Plugin
 #
-#	Read the docs:
-#	https://github.com/schriftgestalt/GlyphsSDK/tree/master/Python%20Templates/Reporter
+# Read the docs:
+# https://github.com/schriftgestalt/GlyphsSDK/tree/master/Python%20Templates/Reporter
 #
 #
 ###########################################################################################################
 
 
 from __future__ import division, print_function, unicode_literals
-#import objc
-from GlyphsApp import *
-from GlyphsApp.plugins import *
-
+import objc
+from GlyphsApp import Glyphs, OFFCURVE, TEXT
+from GlyphsApp.plugins import ReporterPlugin
+from AppKit import NSRect, NSPoint, NSSize, NSColor, NSBezierPath
 RADIUS = 9
+
 
 class ShowGuideSheets(ReporterPlugin):
 
@@ -32,13 +33,13 @@ class ShowGuideSheets(ReporterPlugin):
 			'ja': '原稿用紙',
 		})
 
-
 	@objc.python_method
 	def background(self, layer):
 		script = layer.parent.script
 		masterId = layer.associatedMasterId
 		scale = self.getScale()
-		if scale < 0.25: return
+		if scale < 0.25:
+			return
 
 		guideGlyph = None
 		if script is not None:
@@ -49,14 +50,15 @@ class ShowGuideSheets(ReporterPlugin):
 			return
 
 		guideLayer = guideGlyph.layers[masterId]
-		if guideLayer is None: return
+		if guideLayer is None:
+			return
 
 		closedPaths = guideLayer.completeBezierPath.copy()
 		opendPath = guideLayer.completeOpenBezierPath.copy()
 
 		# show guides
 		try:
-			#color = NSColor.colorWithRed_green_blue_alpha_(0.1, 0.6, 0.8, 0.35)
+			# color = NSColor.colorWithRed_green_blue_alpha_(0.1, 0.6, 0.8, 0.35)
 			self.getColor(1, 0.35).set()
 			closedPaths.setLineWidth_(1.0 / scale)
 			closedPaths.stroke()
@@ -67,17 +69,19 @@ class ShowGuideSheets(ReporterPlugin):
 
 			if guideLayer.annotations:
 				for ann in guideLayer.annotations:
-					if ann.type != TEXT: continue
-					if ann.text is None: continue
+					if ann.type != TEXT:
+						continue
+					if ann.text is None:
+						continue
 					self.drawTextAtPoint(
-							ann.text, ann.position, 
-							fontSize = 10, 
-							fontColor = self.getColor(0, 0.35),
-							align = "topleft",
+							ann.text, ann.position,
+							fontSize=10,
+							fontColor=self.getColor(0, 0.35),
+							align="topleft",
 						)
-		
+
 		except Exception as e:
-			self.logToConsole( "showGuideSheets: %s\n" % str(e) )
+			self.logToConsole("showGuideSheets: %s\n" % str(e))
 			import traceback
 			print(traceback.format_exc())
 
@@ -86,22 +90,25 @@ class ShowGuideSheets(ReporterPlugin):
 			try:
 				for path in layer.paths:
 					for node in path.nodes:
-						if node.type == OFFCURVE: continue
-						if closedPaths.isStrokeHitByPoint_padding_(node.position, .6): self.drawOnPathPoint(node.position, self.getColor(1, 0.25), scale)
-						if opendPath.isStrokeHitByPoint_padding_(node.position, .6): self.drawOnPathPoint(node.position, self.getColor(0, 0.25), scale)
-			
+						if node.type == OFFCURVE:
+							continue
+						if closedPaths.isStrokeHitByPoint_padding_(node.position, .6):
+							self.drawOnPathPoint(node.position, self.getColor(1, 0.25), scale)
+						if opendPath.isStrokeHitByPoint_padding_(node.position, .6):
+							self.drawOnPathPoint(node.position, self.getColor(0, 0.25), scale)
+
 			except Exception as e:
-				self.logToConsole( "showGuideSheetNodes: %s\n" % str(e) )
+				self.logToConsole("showGuideSheetNodes: %s\n" % str(e))
 				import traceback
 				print(traceback.format_exc())
 
 	@objc.python_method
 	def drawOnPathPoint(self, pos, color, scale):
 		r = RADIUS * 1.0 / scale
-		#NSColor.colorWithRed_green_blue_alpha_(0.1, 0.6, 0.8, 0.25).set()
-		#self.getColor(0.25).set()
+		# NSColor.colorWithRed_green_blue_alpha_(0.1, 0.6, 0.8, 0.25).set()
+		# self.getColor(0.25).set()
 		color.set()
-		rect = NSRect(NSPoint(pos.x-r, pos.y-r), NSSize(r*2, r*2))
+		rect = NSRect(NSPoint(pos.x - r, pos.y - r), NSSize(r * 2, r * 2))
 		circle = NSBezierPath.bezierPathWithRoundedRect_cornerRadius_(rect, r)
 		circle.fill()
 
@@ -125,7 +132,6 @@ class ShowGuideSheets(ReporterPlugin):
 			return NSColor.colorWithRed_green_blue_alpha_(r, g, b, alpha)
 		except:
 			return NSColor.colorWithRed_green_blue_alpha_(0.1, 0.6, 0.8, alpha)
-		
 
 	@objc.python_method
 	def __file__(self):
